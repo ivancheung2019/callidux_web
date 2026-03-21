@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Callidux Limited | AI 物業自動化專家</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/alpinejs" defer></script>
+    <style>
+        .glow { box-shadow: 0 0 20px rgba(99, 102, 241, 0.2); }
+        body { background-color: #020617; color: #f1f5f9; }
+    </style>
+</head>
+<body x-data="{ lang: 'zh' }">
+
+    <nav class="p-6 flex justify-between items-center max-w-7xl mx-auto border-b border-slate-800">
+        <div class="text-2xl font-black tracking-widest">CALLIDUX<span class="text-indigo-500">.</span></div>
+        <div class="flex items-center space-x-6 text-sm">
+            <button @click="lang = lang === 'zh' ? 'en' : 'zh'" class="bg-slate-800 px-4 py-2 rounded-full border border-slate-700 hover:border-indigo-500 transition">
+                <span x-text="lang === 'zh' ? 'Switch to English' : '切換至繁體中文'"></span>
+            </button>
+        </div>
+    </nav>
+
+    <header class="py-24 px-6 text-center">
+        <h1 class="text-5xl md:text-6xl font-extrabold mb-6">
+            <span x-show="lang === 'zh'">引領物業管理的 <span class="text-indigo-500">AI 革命</span></span>
+            <span x-show="lang === 'en'">Leading the <span class="text-indigo-500">AI Revolution</span> in Property</span>
+        </h1>
+        <p class="max-w-2xl mx-auto text-slate-400 text-lg mb-10">
+            <span x-show="lang === 'zh'">Callidux Limited 為物業管理公司打造專屬的 AI 代理人，無縫串聯租客、師傅與業主。</span>
+            <span x-show="lang === 'en'">Callidux Limited creates bespoke AI Agents for property firms, bridging tenants, technicians, and owners seamlessly.</span>
+        </p>
+    </header>
+
+    <section class="max-w-7xl mx-auto px-6 py-12">
+        <h2 class="text-3xl font-bold mb-12 text-center">
+            <span x-show="lang === 'zh'">全方位自動化流程</span>
+            <span x-show="lang === 'en'">Full-Cycle Automation Flow</span>
+        </h2>
+        
+        <div class="grid lg:grid-cols-4 gap-6">
+            <div class="bg-slate-900 p-8 rounded-3xl border border-slate-800 hover:border-indigo-500 transition">
+                <div class="w-12 h-12 bg-indigo-500/10 text-indigo-500 rounded-lg flex items-center justify-center mb-6 text-2xl">📱</div>
+                <h3 class="font-bold text-xl mb-4" x-text="lang === 'zh' ? '租客服務' : 'Tenant Services'"></h3>
+                <p class="text-sm text-slate-400 leading-relaxed" x-text="lang === 'zh' ? '透過 Telegram/WeChat 即時報修、預約及接收水電費與租金通知。' : 'Instant repair reporting, scheduling, and billing via Telegram/WeChat.'"></p>
+            </div>
+
+            <div class="bg-slate-900 p-8 rounded-3xl border border-slate-800 hover:border-indigo-500 transition">
+                <div class="w-12 h-12 bg-purple-500/10 text-purple-500 rounded-lg flex items-center justify-center mb-6 text-2xl">🔧</div>
+                <h3 class="font-bold text-xl mb-4" x-text="lang === 'zh' ? '師傅調度' : 'Dispatching'"></h3>
+                <p class="text-sm text-slate-400 leading-relaxed" x-text="lang === 'zh' ? 'AI 自動對接維修工單，提供智能報價競爭系統。' : 'AI automatically matches work orders with a smart bidding system for vendors.'"></p>
+            </div>
+
+            <div class="bg-slate-900 p-8 rounded-3xl border border-slate-800 hover:border-indigo-500 transition">
+                <div class="w-12 h-12 bg-emerald-500/10 text-emerald-500 rounded-lg flex items-center justify-center mb-6 text-2xl">📊</div>
+                <h3 class="font-bold text-xl mb-4" x-text="lang === 'zh' ? '業主決策' : 'Owner Decisions'"></h3>
+                <p class="text-sm text-slate-400 leading-relaxed" x-text="lang === 'zh' ? '手機端一鍵批核維修預算，實時追蹤租金入帳。' : 'One-click mobile approval for budgets and real-time rent tracking.'"></p>
+            </div>
+
+            <div class="bg-indigo-900/20 p-8 rounded-3xl border border-indigo-500/30 hover:border-indigo-500 transition">
+                <div class="w-12 h-12 bg-blue-500/10 text-blue-500 rounded-lg flex items-center justify-center mb-6 text-2xl">🛡️</div>
+                <h3 class="font-bold text-xl mb-4" x-text="lang === 'zh' ? '後台與合規' : 'Admin & Compliance'"></h3>
+                <p class="text-sm text-slate-400 leading-relaxed" x-text="lang === 'zh' ? '自動財務對帳、租約到期預警及資產回報分析報表。' : 'Auto financial reconciliation, lease expiry alerts, and ROI analytics.'"></p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-12 text-center text-slate-600 border-t border-slate-800">
+        <p class="text-sm">© 2026 Callidux Limited. Excellence in Intelligent Automation.</p>
+    </footer>
+
+</body>
+</html>

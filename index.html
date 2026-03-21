@@ -3,71 +3,101 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Callidux Limited | AI 物業自動化專家</title>
+    <title>Callidux Limited | 擬人化 AI 物業代理人 (完整版)</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/alpinejs" defer></script>
     <style>
-        .glow { box-shadow: 0 0 20px rgba(99, 102, 241, 0.2); }
-        body { background-color: #020617; color: #f1f5f9; }
+        .gradient-text {
+            background: linear-gradient(90deg, #6366f1, #a855f7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        body { background-color: #020617; color: #f1f5f9; font-family: 'Inter', sans-serif; }
+        .bot-shadow { box-shadow: 0 10px 60px -10px rgba(99, 102, 241, 0.3); transition: all 0.3s ease; }
+        .bot-shadow:hover { box-shadow: 0 10px 80px -5px rgba(99, 102, 241, 0.4); transform: translateY(-5px); }
     </style>
 </head>
 <body x-data="{ lang: 'zh' }">
 
-    <nav class="p-6 flex justify-between items-center max-w-7xl mx-auto border-b border-slate-800">
-        <div class="text-2xl font-black tracking-widest">CALLIDUX<span class="text-indigo-500">.</span></div>
-        <div class="flex items-center space-x-6 text-sm">
-            <button @click="lang = lang === 'zh' ? 'en' : 'zh'" class="bg-slate-800 px-4 py-2 rounded-full border border-slate-700 hover:border-indigo-500 transition">
-                <span x-text="lang === 'zh' ? 'Switch to English' : '切換至繁體中文'"></span>
+    <nav class="p-6 flex justify-between items-center max-w-7xl mx-auto border-b border-slate-800/50 relative z-50">
+        <div class="text-2xl font-black tracking-widest text-white">CALLIDUX<span class="text-indigo-500">.</span></div>
+        <div class="flex items-center space-x-4 text-sm relative">
+            <button @click="lang = lang === 'zh' ? 'en' : 'zh'" class="bg-slate-900 px-5 py-2 rounded-full border border-slate-700 hover:border-indigo-500 transition relative overflow-hidden group">
+                <span class="relative z-10 font-medium" x-text="lang === 'zh' ? 'Switch to English' : '切換至繁體中文'"></span>
+                <div class="absolute inset-0 bg-indigo-600/20 translate-y-full group-hover:translate-y-0 transition-transform"></div>
             </button>
         </div>
     </nav>
 
-    <header class="py-24 px-6 text-center">
-        <h1 class="text-5xl md:text-6xl font-extrabold mb-6">
-            <span x-show="lang === 'zh'">引領物業管理的 <span class="text-indigo-500">AI 革命</span></span>
-            <span x-show="lang === 'en'">Leading the <span class="text-indigo-500">AI Revolution</span> in Property</span>
+    <header class="py-24 px-6 text-center relative overflow-hidden border-b border-slate-900">
+        <div class="absolute inset-0 bg-indigo-900/10 blur-3xl opacity-30"></div>
+        <h1 class="text-5xl md:text-6xl font-extrabold mb-6 leading-tight relative">
+            <span x-show="lang === 'zh'">引領 <span class="gradient-text">擬人化 AI 物業革命</span></span>
+            <span x-show="lang === 'en'">Leading the <span class="gradient-text">Human-like AI Property Revolution</span></span>
         </h1>
-        <p class="max-w-2xl mx-auto text-slate-400 text-lg mb-10">
-            <span x-show="lang === 'zh'">Callidux Limited 為物業管理公司打造專屬的 AI 代理人，無縫串聯租客、師傅與業主。</span>
-            <span x-show="lang === 'en'">Callidux Limited creates bespoke AI Agents for property firms, bridging tenants, technicians, and owners seamlessly.</span>
+        <p class="max-w-2xl mx-auto text-slate-400 text-lg mb-12 relative leading-relaxed">
+            <span x-show="lang === 'zh'">Callidux Limited 重新定義 AI 互動。我們的物業 Bot 在 Telegram 與 WeChat 上，提供與真人無異的情感理解與專業調度體驗。</span>
+            <span x-show="lang === 'en'">Callidux Limited redefines AI interaction. Our agents on Telegram & WeChat deliver empathetic understanding and professional dispatch indistinguishable from humans.</span>
         </p>
     </header>
 
-    <section class="max-w-7xl mx-auto px-6 py-12">
-        <h2 class="text-3xl font-bold mb-12 text-center">
-            <span x-show="lang === 'zh'">全方位自動化流程</span>
-            <span x-show="lang === 'en'">Full-Cycle Automation Flow</span>
-        </h2>
+    <section class="max-w-7xl mx-auto px-6 py-20 space-y-32">
         
-        <div class="grid lg:grid-cols-4 gap-6">
-            <div class="bg-slate-900 p-8 rounded-3xl border border-slate-800 hover:border-indigo-500 transition">
-                <div class="w-12 h-12 bg-indigo-500/10 text-indigo-500 rounded-lg flex items-center justify-center mb-6 text-2xl">📱</div>
-                <h3 class="font-bold text-xl mb-4" x-text="lang === 'zh' ? '租客服務' : 'Tenant Services'"></h3>
-                <p class="text-sm text-slate-400 leading-relaxed" x-text="lang === 'zh' ? '透過 Telegram/WeChat 即時報修、預約及接收水電費與租金通知。' : 'Instant repair reporting, scheduling, and billing via Telegram/WeChat.'"></p>
+        <div class="grid lg:grid-cols-2 gap-16 items-center">
+            <div class="order-2 lg:order-1 relative group">
+                <img src="path/to/tenant-bot.png" alt="Telegram Tenant Bot Interface" class="rounded-3xl bot-shadow w-full max-w-sm mx-auto object-cover">
+                <div class="absolute inset-0 rounded-3xl group-hover:bg-indigo-600/5 transition"></div>
             </div>
-
-            <div class="bg-slate-900 p-8 rounded-3xl border border-slate-800 hover:border-indigo-500 transition">
-                <div class="w-12 h-12 bg-purple-500/10 text-purple-500 rounded-lg flex items-center justify-center mb-6 text-2xl">🔧</div>
-                <h3 class="font-bold text-xl mb-4" x-text="lang === 'zh' ? '師傅調度' : 'Dispatching'"></h3>
-                <p class="text-sm text-slate-400 leading-relaxed" x-text="lang === 'zh' ? 'AI 自動對接維修工單，提供智能報價競爭系統。' : 'AI automatically matches work orders with a smart bidding system for vendors.'"></p>
-            </div>
-
-            <div class="bg-slate-900 p-8 rounded-3xl border border-slate-800 hover:border-indigo-500 transition">
-                <div class="w-12 h-12 bg-emerald-500/10 text-emerald-500 rounded-lg flex items-center justify-center mb-6 text-2xl">📊</div>
-                <h3 class="font-bold text-xl mb-4" x-text="lang === 'zh' ? '業主決策' : 'Owner Decisions'"></h3>
-                <p class="text-sm text-slate-400 leading-relaxed" x-text="lang === 'zh' ? '手機端一鍵批核維修預算，實時追蹤租金入帳。' : 'One-click mobile approval for budgets and real-time rent tracking.'"></p>
-            </div>
-
-            <div class="bg-indigo-900/20 p-8 rounded-3xl border border-indigo-500/30 hover:border-indigo-500 transition">
-                <div class="w-12 h-12 bg-blue-500/10 text-blue-500 rounded-lg flex items-center justify-center mb-6 text-2xl">🛡️</div>
-                <h3 class="font-bold text-xl mb-4" x-text="lang === 'zh' ? '後台與合規' : 'Admin & Compliance'"></h3>
-                <p class="text-sm text-slate-400 leading-relaxed" x-text="lang === 'zh' ? '自動財務對帳、租約到期預警及資產回報分析報表。' : 'Auto financial reconciliation, lease expiry alerts, and ROI analytics.'"></p>
+            <div class="space-y-6 order-1 lg:order-2">
+                <div class="flex items-center gap-4">
+                    <div class="p-3 bg-indigo-500/10 text-indigo-400 rounded-xl text-xl">📱</div>
+                    <h3 class="text-3xl font-bold" x-text="lang === 'zh' ? '租客端：更有溫度的服務' : 'Tenant: Empathetic Service'"></h3>
+                </div>
+                <p class="text-slate-300 leading-relaxed" x-text="lang === 'zh' ? 'AI 不僅能辨識爆水喉的緊急性，更能理解租客當下的焦慮。它會以安撫的口吻即時回應，並自動分類報修與調度，給租客滿滿的安全感。' : 'Our AI doesn\'t just recognize a burst pipe; it understands the tenant\'s anxiety. It responds with a reassuring tone while automatically classifying the repair and dispatching, providing total peace of mind.'"></p>
+                <div class="border-t border-slate-800 pt-6">
+                    <span class="text-sm text-indigo-400 font-mono">Platform: Telegram (Simulated)</span>
+                </div>
             </div>
         </div>
+
+        <div class="grid lg:grid-cols-2 gap-16 items-center">
+            <div class="space-y-6">
+                <div class="flex items-center gap-4">
+                    <div class="p-3 bg-blue-500/10 text-blue-400 rounded-xl text-xl">🔧</div>
+                    <h3 class="text-3xl font-bold" x-text="lang === 'zh' ? '師傅端：更清晰的調度' : 'Handyman: Clear Dispatching'"></h3>
+                </div>
+                <p class="text-slate-300 leading-relaxed" x-text="lang === 'zh' ? 'AI 代理人用專業的語法與師傅對接。它會自動匯總報修照片與緊急程度，邀請師傅競價，並提供易於提交報價的按鈕。師傅端不需要多餘的文字說明，效率提升 80%。' : 'AI agents interface with technicians using professional language. They aggregate repair photos, priority, and invite bids with easy-to-use buttons. Technicians need minimal typing, increasing efficiency by 80%.'"></p>
+                <div class="border-t border-slate-800 pt-6">
+                    <span class="text-sm text-blue-400 font-mono">Platform: Telegram (Simulated)</span>
+                </div>
+            </div>
+            <div class="relative group">
+                <img src="path/to/handyman-bot.png" alt="Telegram Handyman Bot Interface" class="rounded-3xl bot-shadow w-full max-w-sm mx-auto object-cover">
+                <div class="absolute inset-0 rounded-3xl group-hover:bg-blue-600/5 transition"></div>
+            </div>
+        </div>
+
+        <div class="grid lg:grid-cols-2 gap-16 items-center">
+            <div class="order-2 lg:order-1 relative group">
+                <img src="path/to/owner-bot.png" alt="WeChat Owner Bot Interface" class="rounded-3xl bot-shadow w-full max-w-sm mx-auto object-cover">
+                <div class="absolute inset-0 rounded-3xl group-hover:bg-emerald-600/5 transition"></div>
+            </div>
+            <div class="space-y-6 order-1 lg:order-2">
+                <div class="flex items-center gap-4">
+                    <div class="p-3 bg-emerald-500/10 text-emerald-400 rounded-xl text-xl">📊</div>
+                    <h3 class="text-3xl font-bold" x-text="lang === 'zh' ? '業主端：更高效的決策' : 'Owner: Efficient Decisions'"></h3>
+                </div>
+                <p class="text-slate-300 leading-relaxed" x-text="lang === 'zh' ? 'AI 會以簡潔明瞭的語言匯報情況，將複雜的師傅報價整合成易於對比的表格，並提供專業建議。業主只需在微信端輕點按鈕，即可完成批核，實現無人值守的資產管理。' : 'The AI reports the situation clearly, aggregates complex quotes into an easy-to-compare table, and offers professional advice. Owners approve with a simple tap within WeChat for seamless asset management.'"></p>
+                <div class="border-t border-slate-800 pt-6">
+                    <span class="text-sm text-emerald-400 font-mono">Platform: WeChat (Simulated)</span>
+                </div>
+            </div>
+        </div>
+
     </section>
 
-    <footer class="py-12 text-center text-slate-600 border-t border-slate-800">
-        <p class="text-sm">© 2026 Callidux Limited. Excellence in Intelligent Automation.</p>
+    <footer class="py-12 text-center text-slate-700 border-t border-slate-800/50">
+        <p class="text-sm">© 2026 Callidux Limited. Excellence in Human-Centric AI Automation.</p>
     </footer>
 
 </body>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>案例作品集 | Callidux Limited</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/alpinejs" defer></script>
+    <style>
+        body { background-color: #020617; color: #f1f5f9; font-family: 'Inter', sans-serif; }
+        .project-card { background: rgba(30, 41, 59, 0.3); border: 1px solid rgba(255,255,255,0.05); overflow: hidden; transition: all 0.3s ease; }
+        .project-card:hover { border-color: #6366f1; transform: translateY(-10px); background: rgba(30, 41, 59, 0.6); }
+        .tag { background: rgba(99, 102, 241, 0.1); color: #818cf8; padding: 4px 12px; border-radius: 99px; font-size: 0.75rem; font-weight: bold; }
+    </style>
+</head>
+<body x-data="{ lang: 'zh' }">
+
+    <nav class="p-6 border-b border-slate-800 flex justify-between items-center max-w-7xl mx-auto">
+        <div class="text-2xl font-black">CALLIDUX<span class="text-indigo-500">.</span></div>
+        <div class="space-x-6 text-sm flex items-center">
+            <a href="index.html" class="hover:text-indigo-400">首頁</a>
+            <a href="portfolio.html" class="text-indigo-400 font-bold">專案矩陣</a>
+            <a href="technology.html" class="hover:text-indigo-400">技術細節</a>
+            <button @click="lang = lang === 'zh' ? 'en' : 'zh'" class="bg-slate-800 px-3 py-1 rounded text-xs">EN/中</button>
+        </div>
+    </nav>
+
+    <header class="py-20 text-center">
+        <h1 class="text-4xl md:text-6xl font-black mb-6" x-text="lang === 'zh' ? '跨領域 AI 實踐' : 'Cross-Domain AI Portfolio'"></h1>
+        <p class="text-slate-400 max-w-2xl mx-auto" x-text="lang === 'zh' ? '從數位智慧體到硬體整合，我們將 AI 落地於真實場景。' : 'From digital agents to hardware integration, we bring AI to life.'"></p>
+    </header>
+
+    <section class="max-w-7xl mx-auto px-6 pb-24 grid md:grid-cols-2 gap-8">
+        
+        <div class="project-card rounded-[2rem] p-8">
+            <div class="flex justify-between items-start mb-6">
+                <span class="tag">LLM / RAG / PropTech</span>
+                <div class="text-2xl">🏠</div>
+            </div>
+            <h3 class="text-2xl font-bold mb-4">海外房地產 AI 三大代理人系統</h3>
+            <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                <span x-show="lang === 'zh'">為海外物業公司開發三大 AI Agent：涵蓋物業管理、跨境銷售及 HR 營運。利用 RAG 架構確保數據精準。</span>
+                <span x-show="lang === 'en'">Developed 3 AI agents for an overseas property firm, supporting management, international sales, and HR via RAG & LLMs.</span>
+            </p>
+            <a href="product-smartlink.html" class="text-indigo-400 text-sm font-bold hover:underline">查看詳情 →</a>
+        </div>
+
+        <div class="project-card rounded-[2rem] p-8">
+            <div class="flex justify-between items-start mb-6">
+                <span class="tag">AIoT / HealthTech / Hardware</span>
+                <div class="text-2xl">🦯</div>
+            </div>
+            <h3 class="text-2xl font-bold mb-4">創新 AI 智慧手杖</h3>
+            <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                <span x-show="lang === 'zh'">領銜研發具備 AI 骨性關節炎早期檢測功能的手杖。涵蓋工業設計、電路設計與軟體開發的跨領域整合。</span>
+                <span x-show="lang === 'en'">Led development of a smart cane featuring early-stage osteoarthritis detection, integrating mechanical and electronic design with AI.</span>
+            </p>
+        </div>
+
+        <div class="project-card rounded-[2rem] p-8">
+            <div class="flex justify-between items-start mb-6">
+                <span class="tag">ECG / Computer Vision / Safety</span>
+                <div class="text-2xl">🚗</div>
+            </div>
+            <h3 class="text-2xl font-bold mb-4">ECG 疲勞駕駛監測方向盤套</h3>
+            <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                <span x-show="lang === 'zh'">數位健康解決方案：整合 ECG 感測技術於方向盤套，實現實時生理監測與疲勞預警。</span>
+                <span x-show="lang === 'en'">Digital health solution featuring an ECG-enabled steering wheel for real-time driver monitoring and drowsiness detection.</span>
+            </p>
+        </div>
+
+        <div class="project-card rounded-[2rem] p-8">
+            <div class="flex justify-between items-start mb-6">
+                <span class="tag">System Architect / CV / Logistics</span>
+                <div class="text-2xl">🚛</div>
+            </div>
+            <h3 class="text-2xl font-bold mb-4">AI 視覺車隊管理原型</h3>
+            <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                <span x-show="lang === 'zh'">擔任系統架構師，開發基於電腦視覺的司機行為分析系統，大幅提升物流安全監控水平。</span>
+                <span x-show="lang === 'en'">System architect for a fleet management system using AI computer vision for driver behavior analysis and safety monitoring.</span>
+            </p>
+        </div>
+
+    </section>
+
+</body>
+</html>

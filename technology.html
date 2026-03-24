@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>技術架構 | Callidux Limited</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { background-color: #020617; color: #f1f5f9; }
+        .tech-diagram { border: 2px dashed #1e293b; padding: 2rem; border-radius: 1.5rem; background: #0b1120; }
+        .code-block { background: #000; color: #4ade80; padding: 1.5rem; border-radius: 1rem; font-family: monospace; font-size: 0.8rem; }
+    </style>
+</head>
+<body>
+    <nav class="p-6 border-b border-slate-800 flex justify-between items-center max-w-7xl mx-auto">
+        <div class="text-2xl font-black">CALLIDUX<span class="text-indigo-500">.</span></div>
+        <div class="space-x-6 text-sm">
+            <a href="index.html" class="hover:text-indigo-400">首頁</a>
+            <a href="services.html" class="hover:text-indigo-400">核心服務</a>
+            <a href="product-smartlink.html" class="hover:text-indigo-400 font-bold">旗艦產品</a>
+        </div>
+    </nav>
+
+    <section class="max-w-5xl mx-auto px-6 py-20">
+        <h2 class="text-3xl font-bold mb-12">底層技術架構</h2>
+        
+        <div class="mb-20">
+            <h3 class="text-xl font-bold text-indigo-400 mb-4">RAG 檢索增強生成</h3>
+            <p class="text-slate-400 mb-8 leading-relaxed">為了確保 Bot 不會產生「幻覺」，我們使用 RAG 技術。Bot 在回答租客問題前，會先檢索該單位的租約合同與物業手冊，確保回覆完全符合法律與規章。</p>
+            <div class="tech-diagram text-center">
+                
+            </div>
+        </div>
+
+        <div class="mb-20">
+            <h3 class="text-xl font-bold text-indigo-400 mb-4">Agentic Workflow (智能體工作流)</h3>
+            <p class="text-slate-400 mb-8 leading-relaxed">我們採用多智能體協作架構。當租客報修時，系統會啟動多個子代理：一個負責分析損害、一個負責師傅競價、一個負責通知業主。這模擬了真人的工作流處理邏輯。</p>
+            <div class="code-block shadow-2xl">
+                // Callidux Smart Agent Logic <br>
+                await Orchestrator.handleInput(tenant_message); <br>
+                const urgency = await Analyzer.checkDamage(photo_attachment); <br>
+                if (urgency > 0.8) await BiddingEngine.startEmergencyAuction();
+            </div>
+        </div>
+    </section>
+</body>
+</html>

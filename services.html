@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>核心服務 | Callidux Limited</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/alpinejs" defer></script>
+    <style>
+        body { background-color: #020617; color: #f1f5f9; }
+        .service-card { background: rgba(30, 41, 59, 0.4); border: 1px solid rgba(71, 85, 105, 0.3); transition: all 0.3s ease; }
+        .service-card:hover { border-color: #6366f1; transform: translateY(-5px); }
+    </style>
+</head>
+<body x-data="{ lang: 'zh' }">
+    <nav class="p-6 border-b border-slate-800 flex justify-between items-center max-w-7xl mx-auto">
+        <div class="text-2xl font-black">CALLIDUX<span class="text-indigo-500">.</span></div>
+        <div class="space-x-6 text-sm flex items-center">
+            <a href="index.html" class="hover:text-indigo-400">首頁</a>
+            <a href="product-smartlink.html" class="hover:text-indigo-400">旗艦產品</a>
+            <a href="technology.html" class="hover:text-indigo-400">技術架構</a>
+            <button @click="lang = lang === 'zh' ? 'en' : 'zh'" class="bg-slate-800 px-3 py-1 rounded text-xs">EN/中</button>
+        </div>
+    </nav>
+
+    <header class="py-20 px-6 text-center bg-indigo-900/10">
+        <h1 class="text-4xl md:text-5xl font-bold mb-4" x-text="lang === 'zh' ? '專業 AI 解決方案' : 'Professional AI Solutions'"></h1>
+        <p class="text-slate-400" x-text="lang === 'zh' ? '從諮詢到部署，為您的物業資產注入智能。' : 'From consulting to deployment, infusing intelligence into your property assets.'"></p>
+    </header>
+
+    <section class="max-w-7xl mx-auto px-6 py-20 grid md:grid-cols-2 gap-12">
+        <div class="service-card p-10 rounded-3xl">
+            <div class="text-4xl mb-6">💡</div>
+            <h3 class="text-2xl font-bold mb-4" x-text="lang === 'zh' ? 'AI 戰略諮詢' : 'AI Strategic Consulting'"></h3>
+            <p class="text-slate-400 leading-relaxed" x-text="lang === 'zh' ? '協助企業評估現有流程，辨識最適合導入自動化的環節，並規劃長期的 AI 轉型藍圖。' : 'Evaluating existing processes to identify automation opportunities and mapping out long-term AI transformation blueprints.'"></p>
+        </div>
+        <div class="service-card p-10 rounded-3xl">
+            <div class="text-4xl mb-6">🛠️</div>
+            <h3 class="text-2xl font-bold mb-4" x-text="lang === 'zh' ? '定制化產品開發' : 'Custom Product Development'"></h3>
+            <p class="text-slate-400 leading-relaxed" x-text="lang === 'zh' ? '針對您的特定物業組合開發專屬 Bot。支援多語種、多平台（TG/WeChat）及私有化部署。' : 'Bespoke bot development for your specific portfolio. Supports multi-language, multi-platform, and private deployment.'"></p>
+        </div>
+    </section>
+</body>
+</html>

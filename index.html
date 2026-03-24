@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Callidux Limited | 領先的擬人化 AI 物業自動化專家</title>
+    <title>Callidux Limited | 將構想轉化為 AI 現實</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/alpinejs" defer></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
@@ -11,9 +11,8 @@
         body { font-family: 'Inter', sans-serif; background-color: #020617; color: #f1f5f9; scroll-behavior: smooth; }
         .gradient-text { background: linear-gradient(90deg, #6366f1, #a855f7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .nav-glass { background: rgba(2, 6, 23, 0.8); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
-        .hero-glow { position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 100%; height: 600px; background: radial-gradient(circle, rgba(99,102,241,0.15) 0%, rgba(2,6,23,0) 70%); z-index: -1; }
-        .card-hover { transition: all 0.3s ease; border: 1px solid rgba(255,255,255,0.05); }
-        .card-hover:hover { border-color: #6366f1; transform: translateY(-5px); background: rgba(30, 41, 59, 0.5); }
+        .hero-glow { position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 100%; height: 800px; background: radial-gradient(circle, rgba(99,102,241,0.15) 0%, rgba(2,6,23,0) 70%); z-index: -1; }
+        .team-image-container { position: relative; border-radius: 3rem; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5); }
     </style>
 </head>
 <body x-data="{ lang: 'zh' }">
@@ -23,77 +22,51 @@
     <nav class="nav-glass sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
             <div class="text-2xl font-black tracking-tighter text-white">CALLIDUX<span class="text-indigo-500">.</span></div>
-            
-            <div class="hidden md:flex space-x-8 text-sm font-medium items-center">
-                <a href="index.html" class="text-indigo-400">首頁</a>
-                <a href="services.html" class="hover:text-indigo-400 transition" x-text="lang === 'zh' ? '服務項目' : 'Services'"></a>
-                
-                <div class="relative group">
-                    <button class="hover:text-indigo-400 flex items-center gap-1 transition">
-                        <span x-text="lang === 'zh' ? '旗艦產品' : 'Products'"></span>
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                    </button>
-                    <div class="absolute hidden group-hover:block w-48 bg-slate-900 border border-slate-800 rounded-xl mt-2 p-2 shadow-2xl">
-                        <a href="product-smartlink.html" class="block px-4 py-2 hover:bg-indigo-600 rounded-lg text-xs transition">SmartLink AI Bot</a>
-                        <a href="#" class="block px-4 py-2 hover:bg-slate-800 rounded-lg text-xs text-slate-500 transition">More Coming Soon...</a>
-                    </div>
-                </div>
-
-                <a href="technology.html" class="hover:text-indigo-400 transition" x-text="lang === 'zh' ? '技術細節' : 'Technology'"></a>
-                <a href="#contact" class="bg-indigo-600 px-5 py-2 rounded-full hover:bg-indigo-500 transition" x-text="lang === 'zh' ? '聯絡我們' : 'Contact Us'"></a>
+            <div class="hidden md:flex space-x-8 text-sm font-medium items-center text-slate-300">
+                <a href="index.html" class="text-white font-bold">首頁</a>
+                <a href="portfolio.html" class="hover:text-indigo-400 transition" x-text="lang === 'zh' ? '專案矩陣' : 'Portfolio'"></a>
+                <a href="services.html" class="hover:text-indigo-400 transition" x-text="lang === 'zh' ? '服務範疇' : 'Services'"></a>
+                <a href="technology.html" class="hover:text-indigo-400 transition" x-text="lang === 'zh' ? '技術實力' : 'Technology'"></a>
             </div>
-
-            <button @click="lang = lang === 'zh' ? 'en' : 'zh'" class="text-xs font-bold border border-slate-700 px-3 py-1 rounded-lg hover:bg-slate-800 transition">
-                <span x-text="lang === 'zh' ? 'EN' : '繁中'"></span>
-            </button>
+            <div class="flex items-center gap-4">
+                <button @click="lang = lang === 'zh' ? 'en' : 'zh'" class="text-[10px] font-bold border border-slate-700 px-2 py-1 rounded hover:bg-slate-800 transition">EN/繁</button>
+                <a href="#contact" class="bg-indigo-600 px-5 py-2 rounded-full text-xs font-bold hover:bg-indigo-500 transition">Contact</a>
+            </div>
         </div>
     </nav>
 
-    <section class="pt-32 pb-20 px-6 text-center max-w-5xl mx-auto">
-        <div class="inline-block px-4 py-1.5 mb-6 border border-indigo-500/30 rounded-full bg-indigo-500/10 text-indigo-400 text-xs font-bold tracking-widest uppercase" x-text="lang === 'zh' ? '物業管理 AI 領導者' : 'Property AI Leader'"></div>
-        <h1 class="text-6xl md:text-8xl font-black mb-8 leading-tight tracking-tighter">
-            <span x-show="lang === 'zh'">賦予物業 <span class="gradient-text">人類般的智慧</span></span>
-            <span x-show="lang === 'en'">Giving Assets <span class="gradient-text">Human Intelligence</span></span>
+    <section class="pt-24 pb-16 px-6 text-center max-w-6xl mx-auto">
+        <h1 class="text-5xl md:text-7xl font-black mb-8 leading-tight tracking-tighter">
+            <span x-show="lang === 'zh'">將您的構想 <br><span class="gradient-text">轉化為 AI 現實</span></span>
+            <span x-show="lang === 'en'">Turning Concepts <br><span class="gradient-text">Into AI Reality</span></span>
         </h1>
-        <p class="text-slate-400 text-lg md:text-xl mb-12 max-w-2xl mx-auto leading-relaxed" x-text="lang === 'zh' ? 'Callidux Limited 透過擬人化 AI 代理人，無縫自動化租客報修、師傅調度與業主審核流程。' : 'Callidux Limited automates tenant repairs, vendor dispatching, and owner approvals via human-like AI agents.'"></p>
-        <div class="flex flex-col md:flex-row justify-center gap-4">
-            <a href="product-smartlink.html" class="bg-white text-black px-10 py-4 rounded-full font-bold hover:bg-slate-200 transition">探索旗艦產品 SmartLink</a>
-            <a href="technology.html" class="border border-slate-700 px-10 py-4 rounded-full font-bold hover:bg-slate-800 transition" x-text="lang === 'zh' ? '查看底層技術' : 'Explore Tech Stack'"></a>
+        <p class="text-slate-400 text-lg md:text-xl mb-12 max-w-3xl mx-auto leading-relaxed" x-text="lang === 'zh' ? 'Callidux Limited 是一家具備軟硬體研發實力的 AI 工作室。從 PropTech、Digital Health 到智慧交通，我們以跨領域技術為客戶實踐創新。' : 'Callidux Limited is an AI studio with full-stack hardware and software capabilities. From PropTech to Digital Health and Mobility, we turn visions into practice.'"></p>
+        
+        <div class="team-image-container max-w-4xl mx-auto mb-20">
+            <img src="team-professional.jpg" alt="Callidux Professional Team" class="w-full h-auto">
+            <div class="absolute inset-0 bg-gradient-to-t from-[#020617] via-transparent to-transparent"></div>
+            <div class="absolute bottom-8 left-0 right-0">
+                <p class="text-indigo-400 font-bold tracking-[0.2em] text-xs uppercase" x-text="lang === 'zh' ? '專業團隊 · 全域實踐' : 'Professional Team · Full-Loop Execution'"></p>
+            </div>
+        </div>
+
+        <div class="flex flex-col md:flex-row justify-center gap-6">
+            <a href="portfolio.html" class="bg-white text-black px-12 py-4 rounded-full font-bold hover:bg-slate-200 transition">瀏覽我們的作品集</a>
+            <a href="#contact" class="border border-slate-700 px-12 py-4 rounded-full font-bold hover:bg-slate-800 transition">立即聯繫團隊</a>
         </div>
     </section>
 
-    <section class="py-24 px-6 max-w-7xl mx-auto grid md:grid-cols-3 gap-8">
-        <div class="card-hover bg-slate-900/40 p-10 rounded-3xl">
-            <div class="text-3xl mb-6">🧠</div>
-            <h3 class="text-xl font-bold mb-4" x-text="lang === 'zh' ? '語意感應與擬人化' : 'Semantic Empathy'"></h3>
-            <p class="text-slate-400 text-sm leading-relaxed" x-text="lang === 'zh' ? '我們的 Bot 不只是關鍵字匹配，它能理解情緒、安撫租客，並用專業語言與師傅協商。' : 'Our bots don’t just match keywords; they understand emotions, reassure tenants, and negotiate professionally with vendors.'"></p>
-        </div>
-        <div class="card-hover bg-slate-900/40 p-10 rounded-3xl">
-            <div class="text-3xl mb-6">🔗</div>
-            <h3 class="text-xl font-bold mb-4" x-text="lang === 'zh' ? '全自動多方調度' : 'Full-Loop Dispatch'"></h3>
-            <p class="text-slate-400 text-sm leading-relaxed" x-text="lang === 'zh' ? '從租客報修到師傅競價，再到業主 WeChat 審核，全程 AI 驅動，無須人工介入。' : 'From reporting to bidding to owner approval on WeChat—all AI-driven, zero manual intervention.'"></p>
-        </div>
-        <div class="card-hover bg-slate-900/40 p-10 rounded-3xl">
-            <div class="text-3xl mb-6">🛡️</div>
-            <h3 class="text-xl font-bold mb-4" x-text="lang === 'zh' ? 'RAG 精準與合規' : 'RAG Precision'"></h3>
-            <p class="text-slate-400 text-sm leading-relaxed" x-text="lang === 'zh' ? '基於物業合同與法規的即時檢索技術，確保 AI 每一句回答都精準、合法、安全。' : 'Real-time retrieval based on property contracts ensures every AI response is accurate, legal, and secure.'"></p>
+    <section class="py-24 px-6 bg-slate-900/20 border-y border-slate-900">
+        <div class="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center opacity-70">
+            <div><div class="text-2xl mb-2">🏠</div><p class="text-[10px] font-bold tracking-widest uppercase">PropTech</p></div>
+            <div><div class="text-2xl mb-2">🩺</div><p class="text-[10px] font-bold tracking-widest uppercase">HealthTech</p></div>
+            <div><div class="text-2xl mb-2">🚗</div><p class="text-[10px] font-bold tracking-widest uppercase">AutoTech</p></div>
+            <div><div class="text-2xl mb-2">🔌</div><p class="text-[10px] font-bold tracking-widest uppercase">Smart IoT</p></div>
         </div>
     </section>
 
-    <section id="contact" class="py-24 px-6 bg-indigo-900/10">
-        <div class="max-w-4xl mx-auto bg-slate-900/80 p-12 rounded-[3rem] border border-indigo-500/20 shadow-2xl">
-            <h2 class="text-3xl font-bold text-center mb-10" x-text="lang === 'zh' ? '開始您的 AI 轉型之旅' : 'Start Your AI Transformation'"></h2>
-            <form action="#" class="grid md:grid-cols-2 gap-6">
-                <input type="text" placeholder="您的姓名 / Name" class="bg-slate-950 border border-slate-800 p-4 rounded-2xl outline-none focus:border-indigo-500 transition">
-                <input type="email" placeholder="電子郵件 / Email" class="bg-slate-950 border border-slate-800 p-4 rounded-2xl outline-none focus:border-indigo-500 transition">
-                <textarea placeholder="您的需求 / Your Requirements" class="md:col-span-2 bg-slate-950 border border-slate-800 p-4 rounded-2xl outline-none h-32 focus:border-indigo-500 transition"></textarea>
-                <button class="md:col-span-2 bg-indigo-600 py-4 rounded-2xl font-black text-lg hover:bg-indigo-500 shadow-xl shadow-indigo-600/20 transition" x-text="lang === 'zh' ? '提交諮詢' : 'Send Message'"></button>
-            </form>
-        </div>
-    </section>
-
-    <footer class="py-12 border-t border-slate-900 text-center text-slate-600 text-sm">
-        <p>&copy; 2026 Callidux Limited. Excellence in Intelligent Automation.</p>
+    <footer class="py-12 text-center text-slate-700 text-xs">
+        <p>© 2026 Callidux Limited. Transforming concepts into intelligent reality.</p>
     </footer>
 
 </body>

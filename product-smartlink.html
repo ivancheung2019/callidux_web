@@ -1,10 +1,123 @@
-<section class="py-16">
-    <h2 class="text-4xl font-bold text-center mb-12">SmartLink AI: 深度自動化</h2>
-    <div class="grid md:grid-cols-2 gap-12">
-        <img src="tenant-bot.png" class="rounded-2xl shadow-2xl">
-        <div class="space-y-6">
-            <h3 class="text-2xl font-bold text-indigo-400">極致的擬人化溝通</h3>
-            <p class="text-slate-400">我們不使用預設腳本。透過 LLM 情感分析，Bot 能感應租客語氣，在深夜漏水時提供安撫式的即時回應，並自動調度師傅。</p>
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartLink AI | PropTech 擬人化代理人 | Callidux Limited</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/alpinejs" defer></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #020617; color: #f1f5f9; scroll-behavior: smooth; }
+        .gradient-text { background: linear-gradient(90deg, #6366f1, #a855f7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .nav-glass { background: rgba(2, 6, 23, 0.8); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
+        .bot-interface-container { position: relative; border-radius: 2rem; overflow: hidden; border: 1px solid rgba(255,255,255,0.05); box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5); transition: all 0.3s ease; }
+        .bot-interface-container:hover { border-color: #6366f1; transform: scale(1.02); }
+        .tech-bridge-card { background: rgba(30, 41, 59, 0.3); border: 1px solid rgba(255,255,255,0.05); transition: all 0.3s ease; }
+        .tech-bridge-card:hover { border-color: #a855f7; background: rgba(30, 41, 59, 0.6); }
+    </style>
+</head>
+<body x-data="{ lang: 'zh' }">
+
+    <nav class="nav-glass sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-2xl font-black tracking-tighter text-white">CALLIDUX<span class="text-indigo-500">.</span></div>
+            <div class="hidden md:flex space-x-8 text-sm font-medium items-center text-slate-300">
+                <a href="index.html" class="hover:text-indigo-400 transition">首頁</a>
+                <a href="portfolio.html" class="hover:text-indigo-400 transition" x-text="lang === 'zh' ? '專案矩陣' : 'Portfolio'"></a>
+                <a href="services.html" class="hover:text-indigo-400 transition" x-text="lang === 'zh' ? '服務範疇' : 'Services'"></a>
+                <a href="technology.html" class="hover:text-indigo-400 transition" x-text="lang === 'zh' ? '技術實力' : 'Technology'"></a>
+            </div>
+            <button @click="lang = lang === 'zh' ? 'en' : 'zh'" class="text-[10px] font-bold border border-slate-700 px-2 py-1 rounded hover:bg-slate-800 transition">EN/繁</button>
         </div>
-    </div>
-</section>
+    </nav>
+
+    <header class="pt-24 pb-16 px-6 text-center max-w-5xl mx-auto">
+        <div class="inline-block px-4 py-1.5 mb-6 border border-indigo-500/30 rounded-full bg-indigo-500/10 text-indigo-400 text-xs font-bold tracking-widest uppercase">SmartLink PropTech AI</div>
+        <h1 class="text-5xl md:text-6xl font-black mb-8 leading-tight tracking-tighter">
+            <span x-show="lang === 'zh'">PropTech 的 <span class="gradient-text">擬人化革命</span></span>
+            <span x-show="lang === 'en'">PropTech's <span class="gradient-text">Human-like Revolution</span></span>
+        </h1>
+        <p class="text-slate-400 text-lg mb-12 max-w-3xl mx-auto leading-relaxed" x-text="lang === 'zh' ? 'SmartLink 不僅是自動化，更是賦予 AI 真人般的情感理解與專業決策能力。無縫串聯租客、業主與師傅，實現無人值守的資產管理。' : 'SmartLink is not just automation; it imparts human-like empathy and professional decision-making to AI, seamlessly connecting tenants, owners, and vendors for unattended asset management.'"></p>
+    </header>
+
+    <section class="max-w-7xl mx-auto px-6 py-16 space-y-24">
+        
+        <div class="grid lg:grid-cols-2 gap-16 items-center">
+            <div class="bot-interface-container order-2 lg:order-1">
+                <img src="tenant-bot.png" alt="Telegram Tenant Bot Interface" class="w-full h-auto">
+                <div class="absolute bottom-4 right-4 bg-black/50 px-3 py-1 rounded-full text-xs text-slate-400 font-mono">Platform: Telegram (Simulated)</div>
+            </div>
+            <div class="space-y-6 order-1 lg:order-2">
+                <div class="flex items-center gap-4">
+                    <div class="p-3 bg-indigo-500/10 text-indigo-400 rounded-xl text-xl">📱</div>
+                    <h3 class="text-3xl font-bold" x-text="lang === 'zh' ? '租客：更有溫度的服務' : 'Tenant: Empathetic Service'"></h3>
+                </div>
+                <p class="text-slate-300 leading-relaxed" x-text="lang === 'zh' ? 'AI 不僅能辨識「爆水喉」的緊急性，更能理解租客當下的焦慮。它會以安撫的口吻即時回應，並自動在背景完成報修分類與師傅調度，給租客滿滿的安全感。' : 'Our AI doesn\'t just recognize a \'burst pipe\' emergency; it understands the tenant\'s anxiety. It responds with a reassuring tone while automatically classifying the repair and dispatching a technician in the background, providing total peace of mind.'"></p>
+            </div>
+        </div>
+
+        <div class="grid lg:grid-cols-2 gap-16 items-center">
+            <div class="space-y-6">
+                <div class="flex items-center gap-4">
+                    <div class="p-3 bg-emerald-500/10 text-emerald-400 rounded-xl text-xl">📊</div>
+                    <h3 class="text-3xl font-bold" x-text="lang === 'zh' ? '業主：更高效的決策' : 'Owner: Efficient Decisions'"></h3>
+                </div>
+                <p class="text-slate-300 leading-relaxed" x-text="lang === 'zh' ? '業主不再收到冰冷的錯誤代碼。AI 會以簡潔明瞭的語言匯報情況，將複雜的師傅報價整合成易於對比的表格，並提供專業建議。業主只需在微信端輕點按鈕，即可完成批核。' : 'Owners no longer receive cold error codes. The AI reports the situation in clear language, aggregates complex technician quotes into an easy-to-compare table, and offers professional advice. Owners approve with a simple tap within WeChat.'"></p>
+            </div>
+            <div class="bot-interface-container">
+                <img src="owner-bot.png" alt="WeChat Owner Bot Interface" class="w-full h-auto">
+                <div class="absolute bottom-4 right-4 bg-black/50 px-3 py-1 rounded-full text-xs text-slate-400 font-mono">Platform: WeChat (Simulated)</div>
+            </div>
+        </div>
+
+        <div class="grid lg:grid-cols-2 gap-16 items-center">
+            <div class="bot-interface-container order-2 lg:order-1">
+                <img src="handyman-bot.png" alt="Telegram Handyman Bidding Interface" class="w-full h-auto">
+                <div class="absolute bottom-4 right-4 bg-black/50 px-3 py-1 rounded-full text-xs text-slate-400 font-mono">Platform: Telegram (Simulated)</div>
+            </div>
+            <div class="space-y-6 order-1 lg:order-2">
+                <div class="flex items-center gap-4">
+                    <div class="p-3 bg-blue-500/10 text-blue-400 rounded-xl text-xl">🔧</div>
+                    <h3 class="text-3xl font-bold" x-text="lang === 'zh' ? '師傅：更清晰的調度' : 'Vendor: Clear Dispatch'"></h3>
+                </div>
+                <p class="text-slate-300 leading-relaxed" x-text="lang === 'zh' ? 'AI 代理人用專業的語法與師傅對接。它會自動匯總報修照片與緊急程度，邀請師傅競價，並提供易於提交報價的按鈕。師傅端不需要多餘的文字說明，效率提升 80%。' : 'AI agents interface with technicians using professional language. They aggregate repair photos, priority, and invite bids with easy-to-use buttons. Technicians need minimal typing, increasing efficiency by 80%.'"></p>
+            </div>
+        </div>
+
+    </section>
+
+    <section class="py-24 px-6 bg-slate-900/20 border-y border-slate-900">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl font-black text-center mb-16tracking-tighter">
+                <span x-show="lang === 'zh'">從 PropTech 到全域 AI 實踐</span>
+                <span x-show="lang === 'en'">From PropTech to Full-Loop AI</span>
+            </h2>
+            <p class="text-slate-400 text-center max-w-3xl mx-auto mb-16 leading-relaxed" x-text="lang === 'zh' ? 'SmartLink 的核心技術——LLM 語意理解、RAG 知識檢索與 Agentic Workflow 智能體工作流——是 Callidux 跨領域開發的基石。我們將這些能力延伸至智慧硬件、數位醫療與智慧交通項目。' : 'SmartLink\'s core tech—LLM semantics, RAG retrieval, and Agentic Workflow—is Callidux\'s foundation. We extend these capabilities to Smart Hardware, Digital Health, and Mobility projects.'"></p>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="tech-bridge-card p-8 rounded-3xl">
+                    <div class="text-3xl mb-4">🦯</div>
+                    <h4 class="text-xl font-bold mb-3">AI 智慧手杖 (HealthTech)</h4>
+                    <p class="text-slate-400 text-sm leading-relaxed" x-text="lang === 'zh' ? '將 SmartLink 的「語意感應」轉化為硬體端的「生理感應」。利用 AI 進行關節炎早期檢測，展現軟硬體整合實力。' : 'Translating semantic empathy into physical sensing. AI-powered early osteoarthritis detection, showcasing hardware-software integration.'"></p>
+                </div>
+                <div class="tech-bridge-card p-8 rounded-3xl">
+                    <div class="text-3xl mb-4">🚗</div>
+                    <h4 class="text-xl font-bold mb-3">ECG 疲勞監測方向盤 (Mobility)</h4>
+                    <p class="text-slate-400 text-sm leading-relaxed" x-text="lang === 'zh' ? '利用 SmartLink 的「實時分析」架構，處理硬體傳回的 ECG 生理數據，實現駕駛疲勞與睡眠檢測。' : 'Leveraging real-time analytics to process ECG biological data from hardware for driver drowsiness and sleep detection.'"></p>
+                </div>
+                <div class="tech-bridge-card p-8 rounded-3xl">
+                    <div class="text-3xl mb-4">🚛</div>
+                    <h4 class="text-xl font-bold mb-3">視覺車隊管理 (Computer Vision)</h4>
+                    <p class="text-slate-400 text-sm leading-relaxed" x-text="lang === 'zh' ? '將「智能體決策」應用於車隊安全。利用電腦視覺代替真人，分析司機行為並進行安全預警。' : 'Applying agentic decision-making to fleet safety. Using Computer Vision to analyze driver behavior and issue safety alerts.'"></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-12 border-t border-slate-900 text-center text-slate-700 text-xs">
+        <p>© 2026 Callidux Limited. Transforming concepts into intelligent reality.</p>
+    </footer>
+
+</body>
+</html>
